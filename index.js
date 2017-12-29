@@ -30,7 +30,7 @@ class AliyunSlsStream extends Writable {
           .filter(key => key !== '__time')
           .map(key => ({
             key,
-            value: String(log[key])
+            value: JSON.stringify(log[key])
           }))
       }
     })
