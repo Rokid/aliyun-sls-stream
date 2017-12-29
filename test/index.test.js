@@ -35,6 +35,7 @@ test('write bunyan logs', async t => {
 
 test('write logs', async t => {
   const { stream } = t.context
+  stream.write('message from write string')
   stream.write({ from: 'stream' })
 
   await new Promise(resolve => setTimeout(resolve, 2000))
