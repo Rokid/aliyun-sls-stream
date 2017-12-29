@@ -57,7 +57,9 @@ class AliyunSlsStream extends Writable {
 
   _write (chunk, encoding, callback) {
     if (typeof chunk === 'string') {
-
+      chunk = {
+        message: chunk
+      }
     }
     this.__cache.push(Object.assign({}, chunk, {
       __time: Math.floor(new Date().getTime() / 1000)

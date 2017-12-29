@@ -4,7 +4,25 @@
 
 ## 使用方法
 
-1. 通过 `bunyan` 使用
+1. 直接使用
+
+```js
+const AliyunSlsStream = require('aliyun-sls-stream')
+
+const stream = new AliyunSlsStream({
+  accessKeyId: 'your_very_secured_access_key_id',
+  secretAccessKey: 'your_very_secured_secret_access_key',
+  endpoint: 'an_aliyun_endpoint_for_sls', // refer to https://help.aliyun.com/document_detail/29008.html?spm=5176.doc28984.2.5.CMkSh1 for more details
+  project: process.env.ALIYUN_PROJECT,
+  logStore: process.env.ALIYUN_LOG_STORE
+})
+
+stream.write('Hello from the other side')
+stream.write({ foo: 'bar' })
+
+```
+
+2. 通过 `bunyan` 使用
 
 ```js
 const bunyan = require('bunyan')
